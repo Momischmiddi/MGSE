@@ -1,0 +1,13 @@
+[info] Packaging C:\Users\Valentin\IdeaProjects\ExternalDsl\target\scala-2.12\externaldsl_2.12-0.1.jar ...
+[debug] Input file mappings:
+[debug] 	test\Main.class
+[debug] 	  C:\Users\Valentin\IdeaProjects\ExternalDsl\target\scala-2.12\classes\test\Main.class
+[debug] 	test\Main$.class
+[debug] 	  C:\Users\Valentin\IdeaProjects\ExternalDsl\target\scala-2.12\classes\test\Main$.class
+[debug] 	test\Main$delayedInit$body.class
+[debug] 	  C:\Users\Valentin\IdeaProjects\ExternalDsl\target\scala-2.12\classes\test\Main$delayedInit$body.class
+[debug] 	test
+[debug] 	  C:\Users\Valentin\IdeaProjects\ExternalDsl\target\scala-2.12\classes\test
+[debug] 	test\Main
+[debug] 	  C:\Users\Valentin\IdeaProjects\ExternalDsl\target\scala-2.12\classes\test\Main
+[info] Done packaging.
