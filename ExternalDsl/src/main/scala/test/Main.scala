@@ -8,11 +8,14 @@ object Test extends MyParser {
   final var filePath = "src/main/scala/test/DSLFile.Scalagame"
 
   def main(args: Array[String]): Unit = {
-    var fileContent = readFileContent(new File(filePath))
+    val fileContent = readFileContent(new File(filePath))
 
-    println("Darin: " + fileContent)
+    println("DSL-File-Content: " + fileContent)
+    println("")
 
-    var result = parseAll(floatingPointNumber, "a")
+    val result = parseAll(gameParser, fileContent)
+
+    println("Parsed Object:")
     println(result)
   }
 
