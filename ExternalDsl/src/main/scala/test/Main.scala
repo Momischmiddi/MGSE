@@ -3,20 +3,19 @@ package test
 import java.io.File
 import java.util.Scanner
 
-object Test extends MyParser {
+object Main extends MyParser {
 
-  final var filePath = "src/main/scala/test/DSLFile.Scalagame"
+  final var filePath = "src/main/scala/test/DSLFile.Moviestar"
 
   def main(args: Array[String]): Unit = {
     val fileContent = readFileContent(new File(filePath))
 
     println("DSL-File-Content: " + fileContent)
-    println("")
 
-    val result = parseAll(gameParser, fileContent)
+    val program = parseAll(programParser, fileContent)
 
     println("Parsed Object:")
-    println(result)
+    println(program)
   }
 
   def readFileContent(dslFile: File): String = {
