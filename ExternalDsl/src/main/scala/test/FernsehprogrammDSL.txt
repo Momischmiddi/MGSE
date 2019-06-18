@@ -1,0 +1,27 @@
+Startdatum: 17.06.2019			<- Date
+Tag: Montag				<- Wochentag
+	Programmpunkt:
+		Titel: Film 1		<- Text < 200 Char
+		Beschreibung:		<- Text < 200 Char
+		Bild:			<- URL
+		Uhrzeit:		<- Uhrzeit
+		Dauer:			<- Zeit in Minuten
+		FSK:			<- Alter
+		Bewertung:		<- Zahl zwischen 1-5
+	Programmpunkt:
+		Titel: Film 2
+		Beschreibung:
+		Bild:
+		Uhrzeit:
+		Dauer:
+		FSK:
+		Bewertung:
+Tag: Dienstag
+	Programmpunkt:
+		Titel: Film 2
+		Beschreibung:
+		Bild:
+		Uhrzeit:
+		Dauer:
+		FSK:
+		Bewertung:
