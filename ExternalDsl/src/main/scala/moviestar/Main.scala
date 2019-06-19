@@ -1,21 +1,19 @@
-package test
+package moviestar
 
 import java.io.File
 import java.util.Scanner
 
+import gui.MainFrame
+
 object Main extends MyParser {
 
-  final var filePath = "src/main/scala/test/DSLFile.Moviestar"
+  final var DSL_FILE_PATH = "src/main/scala/moviestar/DSLFile.Moviestar"
 
   def main(args: Array[String]): Unit = {
-    val fileContent = readFileContent(new File(filePath))
+    val fileContent = readFileContent(new File(DSL_FILE_PATH))
+    val program = parseAll(programParser, fileContent).get
 
-    println("DSL-File-Content: " + fileContent)
-
-    val program = parseAll(programParser, fileContent)
-
-    println("Parsed Object:")
-    println(program)
+    new MainFrame().createUI(program)
   }
 
   def readFileContent(dslFile: File): String = {

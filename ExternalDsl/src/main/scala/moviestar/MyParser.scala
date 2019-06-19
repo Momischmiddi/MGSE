@@ -1,4 +1,6 @@
-package test
+package moviestar
+
+import model.{Program, ProgramPoint}
 
 import scala.util.parsing.combinator.RegexParsers
 
@@ -18,6 +20,7 @@ class MyParser extends RegexParsers {
       "Tag:" ~ weekday ~
       "Datum:" ~ date ~
       "Titel:" ~ text ~
+      "ID:" ~ integer ~
       "Beschreibung:" ~ text ~
       "Bild:" ~ text ~
       "Uhrzeit:" ~ time ~
@@ -25,8 +28,8 @@ class MyParser extends RegexParsers {
       "FSK:" ~ fsk ~
       "Bewertung:" ~ rating ~
       "Sender:" ~ text ^^ {
-      case _ ~ day ~ _ ~ date ~ _ ~ title ~ _ ~ desc ~ _ ~ img ~ _ ~ time ~ _ ~ len ~ _ ~ fsk ~ _ ~ rating ~ _ ~ channel =>
-        ProgramPoint(day, date, title, desc, img, time, len, fsk, rating, channel)
+      case _ ~ day ~ _ ~ date ~ _ ~ title ~ _ ~ id ~ _ ~ desc ~ _ ~ img ~ _ ~ time ~ _ ~ len ~ _ ~ fsk ~ _ ~ rating ~ _ ~ channel =>
+        ProgramPoint(day, date, title, id, desc, img, time, len, fsk, rating, channel)
     }
 
   private def rating: Parser[Int] =
