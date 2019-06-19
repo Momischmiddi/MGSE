@@ -5,6 +5,8 @@ Buttonstyle:
     Font-size: 12
     Border-color: Red
     Border-width: 2
+    X-size: 120
+    Y-size: 60
 Movieinformationstyle:
     Font-style: Bold
     Font-name: Arial

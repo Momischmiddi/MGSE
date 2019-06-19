@@ -1,6 +1,6 @@
 package dsl
 
-import model.{ButtonStyle, Style}
+import model.{ButtonStyle, MovieDescriptionStyle, MovieInformationStyle, Style}
 
 import scala.util.parsing.combinator.RegexParsers
 
@@ -20,9 +20,11 @@ class StyleParser extends RegexParsers {
       "Font-name:" ~ fontName ~
       "Font-size:" ~ integer ~
       "Border-color:" ~ color ~
-      "Border-width:" ~ integer ^^ {
-      case _ ~ bfst ~ _ ~ bfna ~ _ ~ bfsi ~ _ ~ bbco ~ _ ~ bbwi =>
-        ButtonStyle(bfst, bfna, bfsi, bbco, bbwi)
+      "Border-width:" ~ integer ~
+      "X-size:" ~ integer ~
+      "Y-size:" ~ integer ^^ {
+      case _ ~ bfst ~ _ ~ bfna ~ _ ~ bfsi ~ _ ~ bbco ~ _ ~ bbwi ~ _ ~ bxs ~ _ ~ bys =>
+        ButtonStyle(bfst, bfna, bfsi, bbco, bbwi, bxs, bys)
     }
 
   def movieInformationStyle: Parser[MovieInformationStyle] =

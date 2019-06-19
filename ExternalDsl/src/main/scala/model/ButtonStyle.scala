@@ -1,6 +1,6 @@
 package model
 
 case class ButtonStyle(buttonFontStyle: String, buttonFontName: String, buttonFontSize: Int, buttonBorderColor: String
-                       , buttonBorderWith: Int) {
+                       , buttonBorderWith: Int, xSize: Int, ySize: Int) {
 
 }

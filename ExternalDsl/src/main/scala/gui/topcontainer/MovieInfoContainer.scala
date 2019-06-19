@@ -2,6 +2,7 @@ package gui.topcontainer
 
 import java.awt.{BorderLayout, Color, FlowLayout, Font}
 
+import gui.generatedGUIComponents.GeneratedMovieInfoLabel
 import javax.swing.{JLabel, JPanel}
 import model.ProgramPoint
 
@@ -10,19 +11,16 @@ case class MovieInfoContainer() extends JPanel {
   val dayTimeTitleContainer = new JPanel()
   val dskChannelLenContainer = new JPanel()
 
-  val labelFont = new Font("Arial", Font.BOLD, 16)
-
-  val dayLabel = new JLabel()
-  val timeLabel = new JLabel()
-  val titleLabel = new JLabel()
-  val fskLabel = new JLabel()
-  val channelLabel = new JLabel()
-  val lenLabel = new JLabel()
+  val dayLabel = new GeneratedMovieInfoLabel()
+  val timeLabel = new GeneratedMovieInfoLabel()
+  val titleLabel = new GeneratedMovieInfoLabel()
+  val fskLabel = new GeneratedMovieInfoLabel()
+  val channelLabel = new GeneratedMovieInfoLabel()
+  val lenLabel = new GeneratedMovieInfoLabel()
 
   def createUI(programPoint: ProgramPoint): Unit = {
     this.setLayout(new BorderLayout())
     this.setBackground(Color.WHITE)
-    this.setFonts()
     this.setLabelTexts(programPoint)
     this.addComponents()
 
@@ -43,15 +41,6 @@ case class MovieInfoContainer() extends JPanel {
 
     this.add(dayTimeTitleContainer, BorderLayout.NORTH)
     this.add(dskChannelLenContainer, BorderLayout.SOUTH)
-  }
-
-  def setFonts() = {
-    dayLabel.setFont(labelFont)
-    timeLabel.setFont(labelFont)
-    titleLabel.setFont(labelFont)
-    fskLabel.setFont(labelFont)
-    channelLabel.setFont(labelFont)
-    lenLabel.setFont(labelFont)
   }
 
   def update(programPoint: ProgramPoint) = {

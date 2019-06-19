@@ -1,9 +1,10 @@
 package gui.bottomcontainer
 
-import java.awt.event.{ActionEvent}
+import java.awt.event.ActionEvent
 import java.awt.{BorderLayout, Color, Font}
 
 import gui.centercontainer.CenterContainer
+import gui.generatedGUIComponents.GeneratedButton
 import gui.topcontainer.TopContainer
 import javax.swing._
 import model.Program
@@ -12,11 +13,11 @@ case class BottomContainer(topContainer: TopContainer, centerContainer: CenterCo
                            program: Program, jf: JFrame) extends JPanel {
 
   val ratingIcon = new ImageIcon("")
-  val labelFont = new Font("Arial", Font.ITALIC, 12)
 
   val ratingLabel = new JLabel()
-  val nextButton = new JButton("Weiter")
-  val prevButton = new JButton("Zurück")
+
+  val nextButton = new GeneratedButton("Weiter")
+  val prevButton = new GeneratedButton("Zurück")
 
   var currentMovieID = 0
 
@@ -25,8 +26,6 @@ case class BottomContainer(topContainer: TopContainer, centerContainer: CenterCo
     this.setLayout(new BorderLayout())
 
     ratingLabel.setIcon(ratingIcon)
-    nextButton.setFont(labelFont)
-    prevButton.setFont(labelFont)
 
     prevButton.setEnabled(false)
 
