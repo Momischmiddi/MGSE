@@ -1,9 +1,8 @@
 package gui.topcontainer
 
-import java.awt.{BorderLayout, Color, FlowLayout, Font}
-
+import java.awt.{BorderLayout, Color, FlowLayout}
 import gui.generatedGUIComponents.GeneratedMovieInfoLabel
-import javax.swing.{JLabel, JPanel}
+import javax.swing.{JPanel}
 import model.ProgramPoint
 
 case class MovieInfoContainer() extends JPanel {

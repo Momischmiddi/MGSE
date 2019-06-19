@@ -1,7 +1,6 @@
 package dsl
 
 import model.{ButtonStyle, MovieDescriptionStyle, MovieInformationStyle, Style}
-
 import scala.util.parsing.combinator.RegexParsers
 
 class StyleParser extends RegexParsers {
@@ -51,31 +50,6 @@ class StyleParser extends RegexParsers {
 
   private def fontStyle: Parser[String] =
     """Italic""" | """Bold""" | """Plain"""
-
-
-  private def rating: Parser[Int] =
-    ("""1""" | """2""" | """3""" | """4""" | """5""") ^^ (_.toInt)
-
-  private def fsk: Parser[Int] =
-    ("""0""" | """6""" | """12""" | """16""" | """18""") ^^ (_.toInt)
-
-  private def time: Parser[String] =
-    """\d{2}:\d{2}""".r
-
-  private def date: Parser[String] =
-    """\d{2}.\d{2}.\d{4}""".r
-
-  private def weekday: Parser[String] =
-    """Montag""" | """Dienstag""" |
-      """Mittwoch""" |
-      """Donnerstag""" |
-      """Freitag""" |
-      """Samstag""" |
-      """Sonntag""" ^^ (_.toString)
-
-  private def text: Parser[String] =
-    """[^\v]+""".r ^^ (_.toString)
-
 
   private def integer: Parser[Int] =
     """\d+""".r ^^ (_.toInt)

@@ -1,10 +1,9 @@
 package gui.centercontainer
 
-import java.awt.{BorderLayout, Color, Font}
+import java.awt.{BorderLayout, Color}
 
 import gui.generatedGUIComponents.GeneratedTextPane
-import javax.swing.text.{SimpleAttributeSet, StyleConstants}
-import javax.swing.{JPanel, JTextPane}
+import javax.swing.{JPanel}
 import model.ProgramPoint
 
 case class CenterContainer() extends JPanel {

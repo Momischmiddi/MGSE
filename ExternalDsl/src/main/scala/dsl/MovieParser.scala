@@ -1,7 +1,6 @@
 package dsl
 
 import model.{Program, ProgramPoint}
-
 import scala.util.parsing.combinator.RegexParsers
 
 class MovieParser extends RegexParsers {

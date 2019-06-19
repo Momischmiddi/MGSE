@@ -2,9 +2,7 @@ package gui.topcontainer
 
 import java.awt.{Color, Dimension, Image}
 import java.net.URL
-
 import javax.imageio.ImageIO
-
 import javax.swing.{ImageIcon, JLabel, JPanel}
 import model.ProgramPoint
 

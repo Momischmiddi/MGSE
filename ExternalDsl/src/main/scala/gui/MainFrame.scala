@@ -1,7 +1,6 @@
 package gui
 
 import java.awt.{BorderLayout, Color}
-
 import gui.bottomcontainer.BottomContainer
 import gui.centercontainer.CenterContainer
 import gui.topcontainer.TopContainer

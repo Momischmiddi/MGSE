@@ -2,7 +2,6 @@ package moviestar
 
 import java.io.File
 import java.util.Scanner
-
 import dsl.{MovieObjectGenerator, StyleObjectGenerator}
 import gui.MainFrame
 

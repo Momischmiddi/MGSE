@@ -1,8 +1,7 @@
 package gui.bottomcontainer
 
 import java.awt.event.ActionEvent
-import java.awt.{BorderLayout, Color, Font}
-
+import java.awt.{BorderLayout, Color}
 import gui.centercontainer.CenterContainer
 import gui.generatedGUIComponents.GeneratedButton
 import gui.topcontainer.TopContainer
@@ -28,7 +27,6 @@ case class BottomContainer(topContainer: TopContainer, centerContainer: CenterCo
     ratingLabel.setIcon(ratingIcon)
 
     prevButton.setEnabled(false)
-
 
     this.add(ratingLabel, BorderLayout.NORTH)
     this.add(nextButton, BorderLayout.EAST)

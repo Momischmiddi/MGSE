@@ -1,7 +1,6 @@
 package gui.topcontainer
 
 import java.awt.{BorderLayout, Color}
-
 import javax.swing.JPanel
 import model.ProgramPoint
 
