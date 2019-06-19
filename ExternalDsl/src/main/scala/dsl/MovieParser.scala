@@ -1,12 +1,12 @@
-package moviestar
+package dsl
 
 import model.{Program, ProgramPoint}
 
 import scala.util.parsing.combinator.RegexParsers
 
-class MyParser extends RegexParsers {
+class MovieParser extends RegexParsers {
 
-  def programParser: Parser[Program] =
+  def movieParser: Parser[Program] =
     "Programm:" ~ programs ^^ {
       case _ ~ programs =>
         Program(programs)
@@ -54,7 +54,6 @@ class MyParser extends RegexParsers {
 
   private def text: Parser[String] =
     """[^\v]+""".r ^^ (_.toString)
-
 
   private def integer: Parser[Int] =
     """\d+""".r ^^ (_.toInt)

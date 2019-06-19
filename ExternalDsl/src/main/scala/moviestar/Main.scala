@@ -3,15 +3,26 @@ package moviestar
 import java.io.File
 import java.util.Scanner
 
+import dsl.{MovieObjectGenerator, StyleObjectGenerator}
 import gui.MainFrame
 
-object Main extends MyParser {
+object Main {
 
-  final var DSL_FILE_PATH = "src/main/scala/moviestar/DSLFile.Moviestar"
+  final var MOVIE_DSL_PATH = "src/main/scala/dsl/Program.Moviestar"
+  final var STYLE_DSL_PATH = "src/main/scala/dsl/Style.Style"
 
   def main(args: Array[String]): Unit = {
-    val fileContent = readFileContent(new File(DSL_FILE_PATH))
-    val program = parseAll(programParser, fileContent).get
+    val movieObjectGenerator = new MovieObjectGenerator()
+    val styleObjectGenerator = new StyleObjectGenerator()
+
+    val movieDSLfileContent = readFileContent(new File(MOVIE_DSL_PATH))
+    val styleDSLfileContent = readFileContent(new File(STYLE_DSL_PATH))
+
+    val program = movieObjectGenerator.generate(movieDSLfileContent)
+    val style = styleObjectGenerator.generate(styleDSLfileContent)
+
+    println("Generated program: " + program)
+    println("Generated Style: " + style)
 
     new MainFrame().createUI(program)
   }

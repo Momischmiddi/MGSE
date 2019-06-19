@@ -1,0 +1,15 @@
+Style:
+Buttonstyle:
+    Font-style: Italic
+    Font-name: Arial
+    Font-size: 12
+    Border-color: Red
+    Border-width: 2
+Movieinformationstyle:
+    Font-style: Bold
+    Font-name: Arial
+    Font-size: 16
+Moviedescriptionstyle:
+    Font-style: Italic
+    Font-name: Arial
+    Font-size: 12
