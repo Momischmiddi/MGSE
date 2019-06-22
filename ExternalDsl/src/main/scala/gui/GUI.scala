@@ -18,7 +18,7 @@ class GUI extends MainFrame {
     addComponents(program)
 
     pack()
-    setLocationRelativeTo(null)
+    centerOnScreen()
   }
 
   def setMainFrameProps() = {
