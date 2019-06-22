@@ -2,19 +2,22 @@ package gui.topcontainer
 
 import java.awt.{Color, Dimension, Image}
 import java.net.URL
+
 import javax.imageio.ImageIO
-import javax.swing.{ImageIcon, JLabel, JPanel}
+import javax.swing.ImageIcon
 import model.ProgramPoint
 
-case class ImageContainer() extends JPanel {
+import scala.swing.{BorderPanel, Label}
+
+case class ImageContainer() extends BorderPanel {
 
   var movieImage = new ImageIcon("").getImage.getScaledInstance(250, 250, Image.SCALE_DEFAULT)
-  val imageLabel = new JLabel()
+  val imageLabel = new Label()
 
   def createUI(programPoint: ProgramPoint): Unit = {
-    this.add(imageLabel)
-    this.setBackground(Color.WHITE)
-    imageLabel.setPreferredSize(new Dimension(250, 250))
+    this.add(imageLabel, BorderPanel.Position.Center)
+    background = Color.WHITE
+    preferredSize = new Dimension(250, 250)
 
     this.setImage(programPoint)
   }
@@ -25,7 +28,7 @@ case class ImageContainer() extends JPanel {
 
   def setImage(programPoint: ProgramPoint) = {
     movieImage = loadImageFromUrl(programPoint.image).getScaledInstance(250, 250, Image.SCALE_DEFAULT)
-    imageLabel.setIcon(new ImageIcon(movieImage))
+    imageLabel.icon = new ImageIcon(movieImage)
   }
 
   def loadImageFromUrl(imageURL: String): Image = {

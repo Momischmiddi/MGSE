@@ -1,14 +1,21 @@
 package gui.topcontainer
 
-import java.awt.{BorderLayout, Color, FlowLayout}
+import java.awt.Color
+
 import gui.generatedGUIComponents.GeneratedMovieInfoLabel
-import javax.swing.{JPanel}
 import model.ProgramPoint
 
-case class MovieInfoContainer() extends JPanel {
+import scala.swing.{BorderPanel, FlowPanel}
 
-  val dayTimeTitleContainer = new JPanel()
-  val dskChannelLenContainer = new JPanel()
+case class MovieInfoContainer() extends BorderPanel {
+
+  val dayTimeTitleContainer = new FlowPanel()
+  val fskChannelLenContainer = new FlowPanel()
+
+  dayTimeTitleContainer.vGap = 10
+  dayTimeTitleContainer.hGap = 20
+  fskChannelLenContainer.vGap = 10
+  fskChannelLenContainer.hGap = 20
 
   val dayLabel = new GeneratedMovieInfoLabel()
   val timeLabel = new GeneratedMovieInfoLabel()
@@ -18,28 +25,25 @@ case class MovieInfoContainer() extends JPanel {
   val lenLabel = new GeneratedMovieInfoLabel()
 
   def createUI(programPoint: ProgramPoint): Unit = {
-    this.setLayout(new BorderLayout())
-    this.setBackground(Color.WHITE)
+    background = Color.WHITE
     this.setLabelTexts(programPoint)
     this.addComponents()
 
-    dayTimeTitleContainer.setBackground(Color.WHITE)
-    dayTimeTitleContainer.setLayout(new FlowLayout(FlowLayout.LEFT, 20, 10));
-    dskChannelLenContainer.setLayout(new FlowLayout(FlowLayout.LEFT, 20, 10));
-    dskChannelLenContainer.setBackground(Color.WHITE)
+    dayTimeTitleContainer.background = Color.WHITE
+    fskChannelLenContainer.background = Color.WHITE
   }
 
   def addComponents() = {
-    dayTimeTitleContainer.add(dayLabel)
-    dayTimeTitleContainer.add(timeLabel)
-    dayTimeTitleContainer.add(titleLabel)
+    dayTimeTitleContainer.contents += dayLabel
+    dayTimeTitleContainer.contents += timeLabel
+    dayTimeTitleContainer.contents += titleLabel
 
-    dskChannelLenContainer.add(fskLabel)
-    dskChannelLenContainer.add(channelLabel)
-    dskChannelLenContainer.add(lenLabel)
+    fskChannelLenContainer.contents += fskLabel
+    fskChannelLenContainer.contents += channelLabel
+    fskChannelLenContainer.contents += lenLabel
 
-    this.add(dayTimeTitleContainer, BorderLayout.NORTH)
-    this.add(dskChannelLenContainer, BorderLayout.SOUTH)
+    add(dayTimeTitleContainer, BorderPanel.Position.North)
+    add(fskChannelLenContainer, BorderPanel.Position.South)
   }
 
   def update(programPoint: ProgramPoint) = {
@@ -47,12 +51,12 @@ case class MovieInfoContainer() extends JPanel {
   }
 
   def setLabelTexts(programPoint: ProgramPoint) = {
-    dayLabel.setText(programPoint.weekday)
-    timeLabel.setText(programPoint.time)
-    titleLabel.setText(programPoint.title)
-    fskLabel.setText("FSK: " + programPoint.fsk.toString)
-    channelLabel.setText(programPoint.channel)
-    lenLabel.setText(programPoint.filmLength.toString + " Minuten")
+    dayLabel.text = programPoint.weekday
+    timeLabel.text = programPoint.time
+    titleLabel.text = programPoint.title
+    fskLabel.text = "FSK: " + programPoint.fsk.toString
+    channelLabel.text = programPoint.channel
+    lenLabel.text = programPoint.filmLength.toString + " Minuten"
   }
 
 }

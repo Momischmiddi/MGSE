@@ -1,21 +1,20 @@
 package gui.centercontainer
 
-import java.awt.{BorderLayout, Color}
+import java.awt.{Color}
 
 import gui.generatedGUIComponents.GeneratedTextPane
-import javax.swing.{JPanel}
 import model.ProgramPoint
 
-case class CenterContainer() extends JPanel {
+import scala.swing.BorderPanel
+
+case class CenterContainer() extends BorderPanel {
   val descriptionTextPane = new GeneratedTextPane()
 
   def create(programPoint: ProgramPoint) = {
-    this.setLayout(new BorderLayout())
-    this.setBackground(Color.WHITE)
+    background = Color.WHITE
 
-    this.add(descriptionTextPane, BorderLayout.NORTH)
-
-    this.descriptionTextPane.setText(this.addLineBreaks(programPoint.description))
+    add(descriptionTextPane, BorderPanel.Position.North)
+    this.descriptionTextPane.text = this.addLineBreaks(programPoint.description)
   }
 
   def update(programPoint: ProgramPoint) = {
@@ -26,7 +25,7 @@ case class CenterContainer() extends JPanel {
     var imageDescription = programPoint.description
     imageDescription = addLineBreaks(imageDescription)
 
-    descriptionTextPane.setText(imageDescription)
+    descriptionTextPane.text = imageDescription
   }
 
   def addLineBreaks(imageDescription: String): String = {

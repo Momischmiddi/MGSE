@@ -3,7 +3,7 @@ package moviestar
 import java.io.File
 import java.util.Scanner
 import dsl.{MovieObjectGenerator, StyleObjectGenerator}
-import gui.MainFrame
+import gui.GUI
 
 object Main {
 
@@ -21,9 +21,9 @@ object Main {
     val style = styleObjectGenerator.generate(styleDSLfileContent)
 
     println("Generated program: " + program)
-    println("Generated Style: " + style)
+    println("Generated style: " + style)
 
-    new MainFrame().createUI(program)
+    new GUI().createUI(program)
   }
 
   def readFileContent(dslFile: File): String = {
@@ -37,7 +37,11 @@ object Main {
           scanner.hasNextLine
         }) fileContents.append(scanner.nextLine + System.lineSeparator)
         fileContents.toString
-      } finally if (scanner != null) scanner.close()
+      } finally {
+        if (scanner != null) {
+          scanner.close()
+        }
+      }
     }
   }
 
